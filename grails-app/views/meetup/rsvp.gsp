@@ -7,7 +7,11 @@
   <title><g:message code="default.show.label" args="[entityName]"/></title>
 </head>
 <body>
-<div class="body">
+
+<table border="0">
+  <tr>
+    <td>
+      <div class="body">
   <h1><g:message code="default.show.label" args="[entityName]"/></h1>
   <g:if test="${flash.message}">
     <div class="message">${flash.message}</div>
@@ -81,5 +85,17 @@
   </div>
 
 </div>
+    </td>
+    <td align="right" width="20%">
+      <h2>Wie komt?</h2>
+      <br />
+      <g:each in="${people}" var="people">
+        ${people.user.username} ${people.rsvpState.welNietTekst}<br/>
+      </g:each>
+    </td>
+  </tr>
+
+</table>
+
 </body>
 </html>
