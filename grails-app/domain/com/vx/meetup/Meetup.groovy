@@ -6,9 +6,15 @@ class Meetup {
     String omschrijving
     Date datum
 
+    static belongsTo = [meetingGroep: MeetingGroep]
+
     static constraints = {
         titel blank: false, nullable: false
         omschrijving blank: false, nullable: false
         datum blank: false, nullable: false
+    }
+
+    String toString() {
+        "Meetup: $titel"
     }
 }

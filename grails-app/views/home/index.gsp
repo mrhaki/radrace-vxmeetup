@@ -20,7 +20,10 @@
                     <g:link controller="meetup" action="rsvp" id="${meetup.id}"><g:fieldValue bean="${meetup}" field="titel"/></g:link> <br />
                     <g:fieldValue bean="${meetup}" field="omschrijving"/><br />
                     <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM"/>
+                    <br /><br />
+                    <g:link controller="meetup" action="create" id="${meetup.meetingGroep.id}">Nieuwe meetup voor ${meetup.meetingGroep.titel}</g:link>
                  </div>
+
               </g:each>
           </td>
 

@@ -7,7 +7,12 @@ class MeetingGroep {
         omschrijving  blank: false, nullable: false
     }
 
+    static hasMany = [meetups: Meetup]
+
     String titel;
     String omschrijving;
 
+    String toString() {
+        "Groep: $titel"
+    }
 }
