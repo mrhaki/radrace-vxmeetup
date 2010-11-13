@@ -11,6 +11,7 @@ class HomeController {
     }
 
     def upcomingMeetups() {
-        Meetup.list(sort: 'datum', order: 'desc')
+        def now = new Date()
+        Meetup.findAllByDatumGreaterThanEquals(now, [sort: 'datum', order: 'desc'])
     }
 }

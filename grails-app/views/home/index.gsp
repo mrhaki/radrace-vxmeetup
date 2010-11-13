@@ -3,7 +3,7 @@
   <head>
     <title>Simple GSP page</title>
     <meta name='layout' content='main' />
-    
+
   </head>
   <body>
 
@@ -13,15 +13,19 @@
 
         <tr>
           <td>
-            <ul>
-            <g:each in="['Agile SIG', 'Architectuur SIG']">
-              <li>${it}</li>
-            </g:each>
-            </ul>
+            <h1>VX Meetup: alle meetings op een rijtje</h1>
+
+              <g:each in="${meetups}" var="meetup">
+                <div class="meetupItem">
+                    <g:fieldValue bean="${meetup}" field="titel"/><br />
+                    <g:fieldValue bean="${meetup}" field="omschrijving"/><br />
+                    <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM"/>
+                 </div>
+              </g:each>
           </td>
 
 
-          <td>
+          <td align="right" width="20%">
             <g:include controller="home" action="upcoming"/>
           </td>
         </tr>

@@ -276,7 +276,7 @@ th.desc a {
     background-color: #ff0000;
 }
 
-#header table, #main {
+#header table, #main table, .upcomingMeetups table {
     border: 0px;
 }
 
