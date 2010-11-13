@@ -5,6 +5,7 @@ class Meetup {
     String titel
     String omschrijving
     Date datum
+    String tijd
 
     static belongsTo = [meetingGroep: MeetingGroep]
 
@@ -13,6 +14,7 @@ class Meetup {
         titel blank: false, nullable: false
         omschrijving blank: false, nullable: false
         datum blank: false, nullable: false
+        tijd blank: false, nullable: false
     }
 
     String toString() {

@@ -9,7 +9,6 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-
         <div class="body">
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -26,6 +25,15 @@
                 <div class="dialog">
                     <table>
                         <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="meetingGroep"><g:message code="meetup.meetingGroep.label" default="Meeting Groep" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: meetupInstance, field: 'meetingGroep', 'errors')}">
+                                    <g:select name="meetingGroep.id" from="${com.vx.meetup.MeetingGroep.list()}" optionKey="id" value="${meetupInstance?.meetingGroep?.id}"  />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -51,6 +59,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: meetupInstance, field: 'datum', 'errors')}">
                                     <g:datePicker name="datum" precision="day" value="${meetupInstance?.datum}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="tijd"><g:message code="meetup.tijd.label" default="Tijd" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: meetupInstance, field: 'tijd', 'errors')}">
+                                    <g:textField name="tijd" value="${meetupInstance?.tijd}" />
                                 </td>
                             </tr>
                         
