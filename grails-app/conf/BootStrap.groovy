@@ -60,7 +60,7 @@ class BootStrap {
         datum.clearTime()
         def group = MeetingGroep.findByTitel(args.groep)
         println "found $group"
-        def meetup = new Meetup(meetingGroep: group, titel: args.titel, omschrijving: args.omschrijving, datum: datum).save(flush:true)
+        def meetup = new Meetup(meetingGroep: group, titel: args.titel, omschrijving: args.omschrijving, datum: datum, tijd: args.tijd).save(flush:true)
         println "$meetup is created"
     }
 }
