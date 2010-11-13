@@ -109,4 +109,25 @@ class MeetupController {
         }
     }
 
+    def rsvpYes = {
+        changeRsvp "yes"
+    }
+
+    def rsvpNo = {
+        changeRsvp "no"
+
+    }
+
+    def rsvpMaybe = {
+        changeRsvp "maybe"
+
+    }
+
+    def changeRsvp(rsvpState) {
+
+
+
+       redirect action: "rsvp", params: [id: params.id] 
+    }
+
 }
