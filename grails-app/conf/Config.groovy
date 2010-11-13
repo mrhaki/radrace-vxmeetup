@@ -91,4 +91,8 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.vx.meetup.Us
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.vx.meetup.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.vx.meetup.Role'
 grails.plugins.springsecurity.requestMap.className = 'com.vx.meetup.Requestmap'
-grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity.SecurityConfigType.Requestmap
+grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity.SecurityConfigType.InterceptUrlMap
+
+grails.plugins.springsecurity.interceptUrlMap = [
+        '/**': ['ROLE_USER']
+]
