@@ -2,7 +2,7 @@ package com.vx.meetup
 
 class MeetupController {
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST",rsvpYes:"POST", rsvpNo:"POST", rsvpMaybe:"POST"]
 
     def springSecurityService
 
@@ -132,13 +132,19 @@ class MeetupController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'meetup.label', default: 'Meetup'), params.id])}"
             redirect(action: "list")
         }
-        def rsvp = getRsvpForMeetup(meetupInstance);
-        rsvp.rsvpState = rsvpState
-        if (!rsvp.hasErrors() && rsvp.save(flush: true)) {
-            redirect action: "rsvp", params: [id: params.id]
+        if (meetupInstance.datum > new Date()) {
+            def rsvp = getRsvpForMeetup(meetupInstance);
+            rsvp.rsvpState = rsvpState
+            if (!rsvp.hasErrors() && rsvp.save(flush: true)) {
+                redirect action: "rsvp", params: [id: params.id]
+            }
+            else {
+                render(view: "rsvp", model: [meetupInstance: meetupInstance, rsvpInstance: rsvp])
+            }
         }
         else {
-            render(view: "rsvp", model: [meetupInstance: meetupInstance, rsvpInstance: rsvp])
+            flash.message ="U kunt uw keuze niet meer wijzigen"
+            redirect action:"rsvp", params: [id: params.id]
         }
     }
 
