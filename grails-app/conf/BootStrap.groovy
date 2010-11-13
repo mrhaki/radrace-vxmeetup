@@ -39,6 +39,7 @@ class BootStrap {
         createMeetup titel: 'Scala Usergroup', omschrijving: 'LIFT', datum: new Date(year: 111, month: 1, date: 19)
         createMeetup titel: 'SEAM SIG', omschrijving: 'IRIS', datum: new Date(year: 111, month: 1, date: 24)
         createMeetup titel: 'Coding Dojo', omschrijving: 'SETS', datum: new Date(year: 111, month: 1, date: 24)
+        createMeetup titel: 'Java weekend', omschrijving: 'Weekend fun', datum: new Date(year: 110, month: 10, date: 12)
     }
 
     private void createMeetup(args) {
