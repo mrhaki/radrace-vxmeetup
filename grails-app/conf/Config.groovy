@@ -85,3 +85,10 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.vx.meetup.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.vx.meetup.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.vx.meetup.Role'
+grails.plugins.springsecurity.requestMap.className = 'com.vx.meetup.Requestmap'
+grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity.SecurityConfigType.Requestmap
