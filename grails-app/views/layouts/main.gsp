@@ -24,9 +24,9 @@
                 <table border="0">
                   <tr>
                     <td><g:link controller='home' action="index">Home</g:link></td>
-                    <td><a href="/">Nieuwe Meetup</a></td>
-                    <td><a href="/">Nieuwe groep</a></td>
-                    <td><a href="/">Beheer</a></td>
+                    <td><g:link controller="meetingGroup">Nieuwe Meetup</g:link></td>
+                    <td><g:link controller='home' action="index">Nieuwe groep</g:link></td>
+                    <td><g:link controller='home' action="index">Beheer</g:link></td>
                   </tr>
                 </table>
                 </div>
@@ -35,7 +35,7 @@
           </table>
 
         </div>
-        
+
         <g:layoutBody />
 
     </body>
