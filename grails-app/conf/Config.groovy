@@ -98,5 +98,6 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/home/**': ['ROLE_USER'],
         '/meetingGroep/**': ['ROLE_USER'],
         '/meetup/**': ['ROLE_USER'],
-        '/scaffoldMeetupGroep/**': ['ROLE_USER']
+        '/scaffoldMeetupGroep/**': ['ROLE_USER'],
+        "/beheer/**": ['ROLE_USER']
 ]

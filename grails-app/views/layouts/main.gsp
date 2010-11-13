@@ -26,7 +26,7 @@
                     <td><g:link controller='home' action="index">Home</g:link></td>
                     <td><g:link controller="meetup" action="create">Nieuwe Meetup</g:link></td>
                     <td><g:link controller='meetingGroep' action="create">Nieuwe groep</g:link></td>
-                    <td><g:link controller='home' action="index">Beheer</g:link></td>
+                    <td><a href="/VXMeetup/beheer/index.gsp">Beheer</a></td>
                   </tr>
                 </table>
                 </div>
