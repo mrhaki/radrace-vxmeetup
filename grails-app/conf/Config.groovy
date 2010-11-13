@@ -94,5 +94,6 @@ grails.plugins.springsecurity.requestMap.className = 'com.vx.meetup.Requestmap'
 grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity.SecurityConfigType.InterceptUrlMap
 
 grails.plugins.springsecurity.interceptUrlMap = [
-        '/**': ['ROLE_USER']
+        '/*': ['ROLE_USER'],
+        '/home/**': ['ROLE_USER']
 ]

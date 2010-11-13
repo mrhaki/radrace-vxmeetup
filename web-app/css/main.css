@@ -271,3 +271,21 @@ th.desc a {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
+
+#header {
+    background-color: #ff0000;
+}
+
+#header table, #main {
+    border: 0px;
+}
+
+}
+#header .logoimg {
+    display: inline;
+    float: left;
+}
+
+#header .navigation {
+    display: inline;
+}
