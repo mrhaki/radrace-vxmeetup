@@ -110,7 +110,8 @@ class MeetupController {
         }
         else {
             def rsvpInstance = getRsvpForMeetup(meetupInstance)
-            return [meetupInstance: meetupInstance, rsvpInstance: rsvpInstance]
+            def people =  Rsvp.findAllByMeetup(meetupInstance)
+            return [meetupInstance: meetupInstance, rsvpInstance: rsvpInstance, people: people]
         }
     }
 
@@ -148,6 +149,11 @@ class MeetupController {
             flash.message ="U kunt uw keuze niet meer wijzigen"
             redirect action:"rsvp", params: [id: params.id]
         }
+    }
+
+    def people = {
+        def meetup = Meetup.get(params.id)
+        [people: Rsvp.findAllByMeetup(meetup)]
     }
 
     def getRsvpForMeetup(meetupInstance) {
