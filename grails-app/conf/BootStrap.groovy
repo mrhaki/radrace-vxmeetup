@@ -12,6 +12,7 @@ class BootStrap {
         initUsers()
         initMeetingGroups()
         initMeetups()
+        Locale.setDefault(new Locale("nl", "NL"))
     }
 
     def destroy = {
