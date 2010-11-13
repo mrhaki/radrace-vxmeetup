@@ -4,6 +4,8 @@ class MeetupController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def springSecurityService
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -58,7 +60,7 @@ class MeetupController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (meetupInstance.version > version) {
-                    
+
                     meetupInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'meetup.label', default: 'Meetup')] as Object[], "Another user has updated this Meetup while you were editing")
                     render(view: "edit", model: [meetupInstance: meetupInstance])
                     return
@@ -110,24 +112,35 @@ class MeetupController {
     }
 
     def rsvpYes = {
-        changeRsvp "yes"
+        changeRsvp RsvpState.YES
     }
 
     def rsvpNo = {
-        changeRsvp "no"
+        changeRsvp RsvpState.NO
 
     }
 
     def rsvpMaybe = {
-        changeRsvp "maybe"
+        changeRsvp RsvpState.MAYBE
 
     }
 
     def changeRsvp(rsvpState) {
-
-
-
-       redirect action: "rsvp", params: [id: params.id] 
+        def meetupInstance = Meetup.get(params.id)
+        if (!meetupInstance) {
+            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'meetup.label', default: 'Meetup'), params.id])}"
+            redirect(action: "list")
+        }
+        def user = User.get(springSecurityService.getPrincipal().id)
+        def rsvp = Rsvp.findByUserAndMeetup(user, meetupInstance);
+        if (rsvp == null) rsvp = new Rsvp(user: user, meetup: meetupInstance);
+        rsvp.rsvpState = rsvpState
+        if (!rsvp.hasErrors() && rsvp.save(flush: true)) {
+            redirect action: "rsvp", params: [id: params.id]
+        }
+        else {
+            render(view: "rsvp", model: [meetupInstance: meetupInstance, rsvpInstance: rsvp])
+        }
     }
 
 }
