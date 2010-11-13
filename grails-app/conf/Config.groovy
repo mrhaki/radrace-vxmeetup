@@ -95,5 +95,9 @@ grails.plugins.springsecurity.securityConfigType = grails.plugins.springsecurity
 
 grails.plugins.springsecurity.interceptUrlMap = [
         '/*': ['ROLE_USER'],
-        '/home/**': ['ROLE_USER']
+        '/home/**': ['ROLE_USER'],
+        '/meetingGroep/**': ['ROLE_USER'],
+        '/meetup/**': ['ROLE_USER'],
+        '/scaffoldMeetupGroep/**': ['ROLE_USER'],
+        "/beheer/**": ['ROLE_USER']
 ]
