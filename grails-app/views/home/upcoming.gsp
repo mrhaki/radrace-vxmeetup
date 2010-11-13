@@ -5,7 +5,7 @@
   <g:each in="${meetups}" var="meetup">
     <tr>
       <td>
-        <g:fieldValue bean="${meetup}" field="titel"/><br />
+        <g:link controller="meetup" action="rsvp" id="${meetup.id}"><g:fieldValue bean="${meetup}" field="titel"/></g:link> <br />
         <g:fieldValue bean="${meetup}" field="omschrijving"/><br />
         <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM"/>
       </td>
