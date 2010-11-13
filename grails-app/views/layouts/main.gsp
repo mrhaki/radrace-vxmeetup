@@ -24,7 +24,7 @@
                 <table border="0">
                   <tr>
                     <td><g:link controller='home' action="index">Home</g:link></td>
-                    <td><g:link controller="meetingGroup">Nieuwe Meetup</g:link></td>
+                    <td><g:link controller="meetingGroep">Nieuwe Meetup</g:link></td>
                     <td><g:link controller='home' action="index">Nieuwe groep</g:link></td>
                     <td><g:link controller='home' action="index">Beheer</g:link></td>
                   </tr>
