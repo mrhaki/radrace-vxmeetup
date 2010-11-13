@@ -39,13 +39,13 @@ class BootStrap {
 
     private void initMeetups() {
         if (Meetup.count() == 0) {
-            createMeetup groep: 'Agile SIG', titel: 'Agile SIG', omschrijving: 'T.O.C. Demming Cycle', datum: createDate(year: 110, month: 11, date: 19)
-            createMeetup groep: 'Architectuur', titel: 'Archictuur SIG', omschrijving: 'Design Patterns', datum: createDate(year: 110, month: 11, date: 19)
-            createMeetup groep: 'Grails', titel: 'Gails SIG', omschrijving: 'TDD', datum: createDate(year: 111, month:0, date: 19)
-            createMeetup groep: 'Scala', titel: 'Scala Usergroup', omschrijving: 'LIFT', datum: createDate(year: 111, month: 1, date: 19)
-            createMeetup groep: 'SEAM', titel: 'SEAM SIG', omschrijving: 'IRIS', datum: createDate(year: 111, month: 1, date: 24)
-            createMeetup groep: 'Coding', titel: 'Coding Dojo', omschrijving: 'SETS', datum: createDate(year: 111, month: 1, date: 24)
-            createMeetup groep: 'Coding', titel: 'Java weekend', omschrijving: 'Weekend fun', datum: createDate(year: 110, month: 10, date: 12)
+            createMeetup groep: 'Agile SIG', titel: 'Agile SIG', omschrijving: 'T.O.C. Demming Cycle', datum: createDate(year: 110, month: 11, date: 19), tijd: "18.30"
+            createMeetup groep: 'Architectuur', titel: 'Archictuur SIG', omschrijving: 'Design Patterns', datum: createDate(year: 110, month: 11, date: 19), tijd: "18.30"
+            createMeetup groep: 'Grails', titel: 'Gails SIG', omschrijving: 'TDD', datum: createDate(year: 111, month:0, date: 19), tijd: "18.30"
+            createMeetup groep: 'Scala', titel: 'Scala Usergroup', omschrijving: 'LIFT', datum: createDate(year: 111, month: 1, date: 19), tijd: "18.30"
+            createMeetup groep: 'SEAM', titel: 'SEAM SIG', omschrijving: 'IRIS', datum: createDate(year: 111, month: 1, date: 24), tijd: "18.30"
+            createMeetup groep: 'Coding', titel: 'Coding Dojo', omschrijving: 'SETS', datum: createDate(year: 111, month: 1, date: 24), tijd: "18.30"
+            createMeetup groep: 'Coding', titel: 'Java weekend', omschrijving: 'Weekend fun', datum: createDate(year: 110, month: 10, date: 12), tijd: "18.30"
         }
     }
 
