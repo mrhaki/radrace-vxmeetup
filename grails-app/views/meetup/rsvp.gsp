@@ -61,6 +61,11 @@
     <g:form method="post">
       <g:hiddenField name="id" value="${meetupInstance?.id}"/>
       <g:hiddenField name="version" value="${meetupInstance?.version}"/>
+                                    
+      <g:if test="${rsvpInstance?.rsvpState}">
+        <p style="background-color: yellow">U heeft aangegeven dat u ${rsvpInstance.rsvpState.welNietTekst} naar de meetup komt</p>
+        <br/>
+      </g:if>
 
       <p>Kom jij ook?</p>
 

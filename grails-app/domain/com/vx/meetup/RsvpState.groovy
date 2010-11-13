@@ -2,8 +2,14 @@ package com.vx.meetup
 
 enum RsvpState {
 
-    YES,
-    NO,
-    MAYBE
+    YES("wel"),
+    NO("niet"),
+    MAYBE("misschien")
+
+    String welNietTekst
+
+    RsvpState(String welNietTekst) {
+        this.welNietTekst = welNietTekst;
+    }
 
 }

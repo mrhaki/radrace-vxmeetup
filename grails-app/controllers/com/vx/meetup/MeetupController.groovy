@@ -107,7 +107,8 @@ class MeetupController {
             redirect(action: "list")
         }
         else {
-            return [meetupInstance: meetupInstance]
+            def rsvpInstance = getRsvpForMeetup(meetupInstance)
+            return [meetupInstance: meetupInstance, rsvpInstance: rsvpInstance]
         }
     }
 
@@ -131,9 +132,7 @@ class MeetupController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'meetup.label', default: 'Meetup'), params.id])}"
             redirect(action: "list")
         }
-        def user = User.get(springSecurityService.getPrincipal().id)
-        def rsvp = Rsvp.findByUserAndMeetup(user, meetupInstance);
-        if (rsvp == null) rsvp = new Rsvp(user: user, meetup: meetupInstance);
+        def rsvp = getRsvpForMeetup(meetupInstance);
         rsvp.rsvpState = rsvpState
         if (!rsvp.hasErrors() && rsvp.save(flush: true)) {
             redirect action: "rsvp", params: [id: params.id]
@@ -141,6 +140,13 @@ class MeetupController {
         else {
             render(view: "rsvp", model: [meetupInstance: meetupInstance, rsvpInstance: rsvp])
         }
+    }
+
+    def getRsvpForMeetup(meetupInstance) {
+        def user = User.get(springSecurityService.getPrincipal().id)
+        def rsvp = Rsvp.findByUserAndMeetup(user, meetupInstance);
+        if (rsvp == null) rsvp = new Rsvp(user: user, meetup: meetupInstance);
+        return rsvp
     }
 
 }
