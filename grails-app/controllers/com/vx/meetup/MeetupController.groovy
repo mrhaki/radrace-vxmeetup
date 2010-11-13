@@ -18,6 +18,8 @@ class MeetupController {
     def create = {
         def meetupInstance = new Meetup()
         meetupInstance.properties = params
+        def meetingGroep = MeetingGroep.get(params.meetingGroup)
+        meetupInstance.meetingGroep = meetingGroep
         return [meetupInstance: meetupInstance]
     }
 
