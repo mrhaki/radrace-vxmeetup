@@ -1,0 +1,9 @@
+.idea
+*iml
+target
+.com.apple*
+devDB*
+.classpath
+.eclipse
+.settings
+.project
