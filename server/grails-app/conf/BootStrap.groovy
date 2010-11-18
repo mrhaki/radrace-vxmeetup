@@ -30,8 +30,9 @@ class BootStrap {
 
     private void initMeetingGroups() {
         if (MeetingGroep.count() == 0) {
+            def image = new File('web-app/images/grails_logo.png').bytes
             ['Architectuur', 'Grails', 'SEAM', 'Coding', 'Agile SIG', 'Scala'].each {
-                def group = new MeetingGroep(titel: it, omschrijving: it).save(flush: true)
+                def group = new MeetingGroep(titel: it, omschrijving: it, logo: image).save(flush: true)
                 println "$group is created"
             }
         }

@@ -16,12 +16,14 @@
             <h1>VX Meetup: alle meetings op een rijtje</h1>
 
               <g:each in="${meetups}" var="meetup">
-                <div class="meetupItem">
-                    <g:link controller="meetup" action="rsvp" id="${meetup.id}"><g:fieldValue bean="${meetup}" field="titel"/></g:link> <br />
-                    <g:fieldValue bean="${meetup}" field="omschrijving"/><br />
-                    <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM"/>
-                    <br /><br />
-                    <g:link controller="meetup" action="create" params="[meetingGroup: meetup.meetingGroep.id]">Nieuwe meetup voor ${meetup.meetingGroep.titel}</g:link>
+                <div class="meetupItem" style="background-image:url(${createLink(controller: 'meetingGroep', action: 'logo', id: meetup.meetingGroep.id)})">
+                    <div class="meetupItemInfo">
+                      <g:link controller="meetup" action="rsvp" id="${meetup.id}"><g:fieldValue bean="${meetup}" field="titel"/></g:link> <br />
+                      <g:fieldValue bean="${meetup}" field="omschrijving"/><br />
+                      <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM"/>
+                      <br /><br />
+                      <g:link controller="meetup" action="create" params="[meetingGroup: meetup.meetingGroep.id]">Nieuwe meetup voor ${meetup.meetingGroep.titel}</g:link>
+                    </div>
                  </div>
 
               </g:each>
