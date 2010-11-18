@@ -58,7 +58,7 @@ class MeetingGroepController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (meetingGroepInstance.version > version) {
-                    
+
                     meetingGroepInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'meetingGroep.label', default: 'MeetingGroep')] as Object[], "Another user has updated this MeetingGroep while you were editing")
                     render(view: "edit", model: [meetingGroepInstance: meetingGroepInstance])
                     return
@@ -95,6 +95,18 @@ class MeetingGroepController {
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'meetingGroep.label', default: 'MeetingGroep'), params.id])}"
             redirect(action: "list")
+        }
+    }
+
+    def logo = {
+        def meetingGroepInstance = MeetingGroep.get(params.id)
+        def image = meetingGroepInstance.logo
+        if (image) {
+            response.contentType = 'image/png'
+            response.outputStream << image
+            response.outputStream.flush()
+        } else {
+            response.status = 404
         }
     }
 }

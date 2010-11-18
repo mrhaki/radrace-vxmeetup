@@ -16,31 +16,37 @@
             <div class="dialog">
                 <table>
                     <tbody>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="meetingGroep.id.label" default="Id" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: meetingGroepInstance, field: "id")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="meetingGroep.titel.label" default="Titel" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: meetingGroepInstance, field: "titel")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="meetingGroep.omschrijving.label" default="Omschrijving" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: meetingGroepInstance, field: "omschrijving")}</td>
-                            
                         </tr>
-                    
+
+                        <tr>
+                          <td valign="top" class="name"><g:message code="meetingGroep.logo.label" default="Logo" /></td>
+
+                          <td valign="top" class="value"><img src="${createLink(action: 'logo', id: meetingGroepInstance.id) }"
+			                       alt="${meetingGroepInstance.titel}" title="${meetingGroepInstance.titel }"/></td>
+                        </tr>
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="meetingGroep.meetups.label" default="Meetups" /></td>
-                            
+
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${meetingGroepInstance.meetups}" var="m">
@@ -48,9 +54,9 @@
                                 </g:each>
                                 </ul>
                             </td>
-                            
+
                         </tr>
-                    
+
                     </tbody>
                 </table>
             </div>

@@ -19,13 +19,13 @@
                 <g:renderErrors bean="${meetingGroepInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${meetingGroepInstance?.id}" />
                 <g:hiddenField name="version" value="${meetingGroepInstance?.version}" />
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="titel"><g:message code="meetingGroep.titel.label" default="Titel" /></label>
@@ -34,7 +34,7 @@
                                     <g:textField name="titel" value="${meetingGroepInstance?.titel}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="omschrijving"><g:message code="meetingGroep.omschrijving.label" default="Omschrijving" /></label>
@@ -43,13 +43,25 @@
                                     <g:textField name="omschrijving" value="${meetingGroepInstance?.omschrijving}" />
                                 </td>
                             </tr>
-                        
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="logo">Logo</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: meetingGroepInstance, field: 'logo', 'errors')}">
+                                    <img src="${createLink(action: 'logo', id: meetingGroepInstance.id) }"
+			                          alt="${meetingGroepInstance.titel}" title="${meetingGroepInstance.titel }"/>
+                                    <br />
+                                    <input type="file" id="logo" name="logo" />
+                                </td>
+                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="meetups"><g:message code="meetingGroep.meetups.label" default="Meetups" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: meetingGroepInstance, field: 'meetups', 'errors')}">
-                                    
+
 <ul>
 <g:each in="${meetingGroepInstance?.meetups?}" var="m">
     <li><g:link controller="meetup" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></li>
@@ -59,7 +71,7 @@
 
                                 </td>
                             </tr>
-                        
+
                         </tbody>
                     </table>
                 </div>

@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.vx.meetup.MeetingGroep" %>
 <html>
     <head>
@@ -19,11 +17,11 @@
                 <g:renderErrors bean="${meetingGroepInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form action="save" method="post" enctype="multipart/form-data">
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="titel"><g:message code="meetingGroep.titel.label" default="Titel" /></label>
@@ -32,7 +30,7 @@
                                     <g:textField name="titel" value="${meetingGroepInstance?.titel}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="omschrijving"><g:message code="meetingGroep.omschrijving.label" default="Omschrijving" /></label>
@@ -41,7 +39,16 @@
                                     <g:textField name="omschrijving" value="${meetingGroepInstance?.omschrijving}" />
                                 </td>
                             </tr>
-                        
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="logo">Logo</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: meetingGroepInstance, field: 'logo', 'errors')}">
+                                    <input type="file" id="logo" name="logo" />
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
