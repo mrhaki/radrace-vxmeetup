@@ -12,7 +12,7 @@ class MeetingGroep {
 
     String titel
     String omschrijving
-    byte[] logo
+    MeetingGroepLogo logo
 
     String toString() {
         "Groep: $titel"

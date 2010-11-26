@@ -21,6 +21,11 @@ class MeetingGroepController {
 
     def save = {
         def meetingGroepInstance = new MeetingGroep(params)
+        def logo = request.getFile("logoImage")
+        if (!logo.empty) {
+            meetingGroepInstance.logo = new MeetingGroepLogo(contentType: logo.contentType, imageData: logo.bytes)
+        }
+
         if (meetingGroepInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'meetingGroep.label', default: 'MeetingGroep'), meetingGroepInstance.id])}"
             redirect(action: "show", id: meetingGroepInstance.id)
@@ -65,6 +70,12 @@ class MeetingGroepController {
                 }
             }
             meetingGroepInstance.properties = params
+
+            def logo = request.getFile("logoImage")
+            if (!logo.empty) {
+                meetingGroepInstance.logo = new MeetingGroepLogo(contentType: logo.contentType, imageData: logo.bytes)
+            }
+
             if (!meetingGroepInstance.hasErrors() && meetingGroepInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'meetingGroep.label', default: 'MeetingGroep'), meetingGroepInstance.id])}"
                 redirect(action: "show", id: meetingGroepInstance.id)
@@ -100,10 +111,10 @@ class MeetingGroepController {
 
     def logo = {
         def meetingGroepInstance = MeetingGroep.get(params.id)
-        def image = meetingGroepInstance.logo
-        if (image) {
-            response.contentType = 'image/png'
-            response.outputStream << image
+        def logo = meetingGroepInstance.logo
+        if (logo) {
+            response.contentType = logo.contentType
+            response.outputStream << logo.imageData
             response.outputStream.flush()
         } else {
             response.status = 404

@@ -46,13 +46,13 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="logo">Logo</label>
+                                    <label for="logoImage">Logo</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: meetingGroepInstance, field: 'logo', 'errors')}">
                                     <img src="${createLink(action: 'logo', id: meetingGroepInstance.id) }"
 			                          alt="${meetingGroepInstance.titel}" title="${meetingGroepInstance.titel }"/>
                                     <br />
-                                    <input type="file" id="logo" name="logo" />
+                                    <input type="file" id="logoImage" name="logoImage" />
                                 </td>
                             </tr>
 

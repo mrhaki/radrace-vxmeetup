@@ -42,10 +42,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="logo">Logo</label>
+                                    <label for="logoImage">Logo</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: meetingGroepInstance, field: 'logo', 'errors')}">
-                                    <input type="file" id="logo" name="logo" />
+                                <td valign="top" class="value">
+                                    <input type="file" id="logoImage" name="logoImage" />
                                 </td>
                             </tr>
 
