@@ -17,37 +17,33 @@
                 <table>
                     <thead>
                         <tr>
-                        
+
                             <g:sortableColumn property="id" title="${message(code: 'meetup.id.label', default: 'Id')}" />
-                        
+
                             <th><g:message code="meetup.meetingGroep.label" default="Meeting Groep" /></th>
-                        
+
                             <g:sortableColumn property="titel" title="${message(code: 'meetup.titel.label', default: 'Titel')}" />
-                        
+
                             <g:sortableColumn property="omschrijving" title="${message(code: 'meetup.omschrijving.label', default: 'Omschrijving')}" />
-                        
+
                             <g:sortableColumn property="datum" title="${message(code: 'meetup.datum.label', default: 'Datum')}" />
-                        
-                            <g:sortableColumn property="tijd" title="${message(code: 'meetup.tijd.label', default: 'Tijd')}" />
-                        
+
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${meetupInstanceList}" status="i" var="meetupInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
+
                             <td><g:link action="show" id="${meetupInstance.id}">${fieldValue(bean: meetupInstance, field: "id")}</g:link></td>
-                        
+
                             <td>${fieldValue(bean: meetupInstance, field: "meetingGroep")}</td>
-                        
+
                             <td>${fieldValue(bean: meetupInstance, field: "titel")}</td>
-                        
+
                             <td>${fieldValue(bean: meetupInstance, field: "omschrijving")}</td>
-                        
+
                             <td><g:formatDate date="${meetupInstance.datum}" /></td>
-                        
-                            <td>${fieldValue(bean: meetupInstance, field: "tijd")}</td>
-                        
+
                         </tr>
                     </g:each>
                     </tbody>

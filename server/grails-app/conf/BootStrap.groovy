@@ -5,6 +5,8 @@ import com.vx.meetup.MeetingGroep
 import com.vx.meetup.Meetup
 import com.vx.meetup.MeetingGroepLogo
 
+
+
 class BootStrap {
 
     def springSecurityService
@@ -52,28 +54,28 @@ class BootStrap {
 
     private void initMeetups() {
         if (Meetup.count() == 0) {
-            createMeetup groep: 'Agile', titel: 'Agile SIG', omschrijving: 'T.O.C. Demming Cycle', datum: createDate(year: 110, month: 11, date: 19), tijd: "18.30"
-            createMeetup groep: 'Architectuur', titel: 'Archictuur SIG', omschrijving: 'Design Patterns', datum: createDate(year: 110, month: 11, date: 19), tijd: "18.30"
-            createMeetup groep: 'Grails', titel: 'Gails SIG', omschrijving: 'TDD', datum: createDate(year: 111, month:0, date: 19), tijd: "18.30"
-            createMeetup groep: 'Scala', titel: 'Scala Usergroup', omschrijving: 'LIFT', datum: createDate(year: 111, month: 1, date: 19), tijd: "18.30"
-            createMeetup groep: 'SEAM', titel: 'SEAM SIG', omschrijving: 'IRIS', datum: createDate(year: 111, month: 1, date: 24), tijd: "18.30"
-            createMeetup groep: 'Coding', titel: 'Coding Dojo', omschrijving: 'SETS', datum: createDate(year: 111, month: 1, date: 24), tijd: "18.30"
-            createMeetup groep: 'Coding', titel: 'Java weekend', omschrijving: 'Weekend fun', datum: createDate(year: 110, month: 10, date: 12), tijd: "18.30"
+            createMeetup groep: 'Agile', titel: 'Agile SIG', omschrijving: 'T.O.C. Demming Cycle', datum: createDate(year: 2010, month: 11, date: 19, hourOfDay: 20, minute: 0)
+            createMeetup groep: 'Architectuur', titel: 'Archictuur SIG', omschrijving: 'Design Patterns', datum: createDate(year: 2010, month: 11, date: 19, hourOfDay: 20, minute: 0)
+            createMeetup groep: 'Grails', titel: 'Gails SIG', omschrijving: 'TDD', datum: createDate(year: 2011, month:0, date: 19, hourOfDay: 17, minute: 45)
+            createMeetup groep: 'Scala', titel: 'Scala Usergroup', omschrijving: 'LIFT', datum: createDate(year: 2011, month: 1, date: 19, hours: 20)
+            createMeetup groep: 'SEAM', titel: 'SEAM SIG', omschrijving: 'IRIS', datum: createDate(year: 2011, month: 1, date: 24, hourOfDay: 18, minute: 30)
+            createMeetup groep: 'Coding', titel: 'Coding Dojo', omschrijving: 'SETS', datum: createDate(year: 2011, month: 1, date: 24, hourOfDay: 18, minute: 0)
+            createMeetup groep: 'Coding', titel: 'Java weekend', omschrijving: 'Weekend fun', datum: createDate(year: 2010, month: 10, date: 12, hourOfDay: 17, minute: 0)
         }
     }
 
     private Date createDate(args) {
-        Date date = new Date(args)
-        date.clearTime()
-        return date
+        def cal = Calendar.instance
+        args = args + [second: 0]
+        cal.set args
+        return cal.time
     }
 
     private void createMeetup(args) {
         def datum = args.datum
-        datum.clearTime()
         def group = MeetingGroep.findByTitel(args.groep)
         println "found $group"
-        def meetup = new Meetup(meetingGroep: group, titel: args.titel, omschrijving: args.omschrijving, datum: datum, tijd: args.tijd).save(flush:true)
+        def meetup = new Meetup(meetingGroep: group, titel: args.titel, omschrijving: args.omschrijving, datum: datum).save(flush:true)
         println "$meetup is created"
     }
 }

@@ -23,7 +23,7 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="meetingGroep"><g:message code="meetup.meetingGroep.label" default="Meeting Groep" /></label>
@@ -32,7 +32,7 @@
                                     <g:select name="meetingGroep.id" from="${com.vx.meetup.MeetingGroep.list()}" optionKey="id" value="${meetupInstance?.meetingGroep?.id}"  />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="titel"><g:message code="meetup.titel.label" default="Titel" /></label>
@@ -41,7 +41,7 @@
                                     <g:textField name="titel" value="${meetupInstance?.titel}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="omschrijving"><g:message code="meetup.omschrijving.label" default="Omschrijving" /></label>
@@ -50,25 +50,16 @@
                                     <g:textField name="omschrijving" value="${meetupInstance?.omschrijving}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="datum"><g:message code="meetup.datum.label" default="Datum" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: meetupInstance, field: 'datum', 'errors')}">
-                                    <g:datePicker name="datum" precision="day" value="${meetupInstance?.datum}"  />
+                                    <g:datePicker name="datum" precision="minute" value="${meetupInstance?.datum}"  />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="tijd"><g:message code="meetup.tijd.label" default="Tijd" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: meetupInstance, field: 'tijd', 'errors')}">
-                                    <g:textField name="tijd" value="${meetupInstance?.tijd}" />
-                                </td>
-                            </tr>
-                        
+
                         </tbody>
                     </table>
                 </div>

@@ -8,7 +8,7 @@
         <h3><g:link controller="meetup" action="create" params="${meetup}"></g:link></h3>
         <g:link controller="meetup" action="rsvp" id="${meetup.id}"><g:fieldValue bean="${meetup}" field="titel"/></g:link> <br />
         <g:fieldValue bean="${meetup}" field="omschrijving"/><br />
-        <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM"/>
+        <g:formatDate date="${meetup.datum}" format="EEEE dd MMMM HH:mm"/>
       </td>
     </tr>
   </g:each>
