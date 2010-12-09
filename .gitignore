@@ -8,3 +8,5 @@ devDB*
 .settings
 .project
 .DS_Store
+
+/server/out/
