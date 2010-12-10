@@ -120,4 +120,8 @@ class MeetingGroepController {
             response.status = 404
         }
     }
+
+    def meetingGroepInfo = {
+        [meetingGroep: MeetingGroep.get(params.int('id'))]
+    }
 }
