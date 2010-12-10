@@ -290,7 +290,7 @@ th.desc a {
     display: inline;
 }
 
-.meetupItem {
+.meetupItem, .meetupGroepItem {
     position: relative;
     float: left;
     display: block;
@@ -300,12 +300,19 @@ th.desc a {
     margin: 10;
     background: no-repeat 50% top;
 }
+.meetupGroepItem {
+    width: 80px;
+    height: 80px;
+}
 
-.meetupItemInfo {
+.meetupItemInfo, .meetupGroepItemInfo {
     position: absolute;
     bottom: 0px;
     height: 90px;
     padding: 5px;
+}
+.meetupGroepItemInfo {
+    height: 20px;
 }
 
 #header a { color: #fff; }

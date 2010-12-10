@@ -16,7 +16,7 @@ class MeetingGroepController {
     def create = {
         def meetingGroepInstance = new MeetingGroep()
         meetingGroepInstance.properties = params
-        return [meetingGroepInstance: meetingGroepInstance]
+        return [meetingGroepInstance: meetingGroepInstance, meetingGroepList: MeetingGroep.list()]
     }
 
     def save = {
