@@ -10,3 +10,4 @@ devDB*
 .DS_Store
 
 /server/out/
+/server/atlassian-ide-plugin.xml
