@@ -6,6 +6,8 @@ class MeetupController {
 
     def springSecurityService
 
+    def bezetteDagenService
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -166,6 +168,12 @@ class MeetupController {
         def rsvp = Rsvp.findByUserAndMeetup(user, meetupInstance);
         if (rsvp == null) rsvp = new Rsvp(user: user, meetup: meetupInstance);
         return rsvp
+    }
+
+    def bezetteDagen = {
+        def maand = params['maand']
+        def jaar = params['jaar']
+        def bezetteDagen = bezetteDagenService.getBezetteDagen(jaar, maand)
     }
 
 }

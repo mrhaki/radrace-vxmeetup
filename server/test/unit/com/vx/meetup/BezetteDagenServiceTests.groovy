@@ -2,7 +2,7 @@ package com.vx.meetup
 
 import grails.test.*
 
-class MeetingGroupTests extends GrailsUnitTestCase {
+class BezetteDagenServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

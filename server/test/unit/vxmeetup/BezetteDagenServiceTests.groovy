@@ -1,8 +1,8 @@
-package com.vx.meetup
+package vxmeetup
 
 import grails.test.*
 
-class MeetupTests extends GrailsUnitTestCase {
+class BezetteDagenServiceTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
