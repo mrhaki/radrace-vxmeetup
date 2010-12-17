@@ -101,3 +101,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
         '/scaffoldMeetupGroep/**': ['ROLE_USER'],
         "/beheer/**": ['ROLE_USER']
 ]
+
+codenarc {
+    reportName = 'target/CodeNarcReport.html'
+}
