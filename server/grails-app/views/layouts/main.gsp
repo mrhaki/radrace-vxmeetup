@@ -2,6 +2,7 @@
     <head>
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
+        <link rel="stylesheet" href="${resource(dir:'css',file:'vx.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <g:javascript library="application" />
@@ -22,6 +23,19 @@
               <td>
                 <div class="navigation">
                 <table border="0">
+                  <tr>
+                    <td colspan="4" align="right">
+                        <div class="userinfo">
+                        <sec:ifLoggedIn>
+                            Welkom <sec:username/>!
+                            <g:link controller='logout'>Logout</g:link>
+                        </sec:ifLoggedIn>
+                        <sec:ifNotLoggedIn>
+                            <g:link controller='login' action='auth'>Login</g:link>
+                        </sec:ifNotLoggedIn>
+                        </div>
+                    </td>
+                  </tr>
                   <tr>
                     <td><g:link controller='home' action="index">Home</g:link></td>
                     <td><g:link controller="meetup" action="create">Nieuwe Meetup</g:link></td>
