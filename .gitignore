@@ -11,3 +11,4 @@ devDB*
 
 /server/out/
 /server/atlassian-ide-plugin.xml
+/server/cobertura.ser
